@@ -1,0 +1,5 @@
+<h4>{{id}}</h4>
+<nav>
+  <button type="button" [routerLink]="['/datapoints', id - 1]">previous</button>
+  <button type="button" [routerLink]="['/datapoints', id + 1]">next</button>
+</nav>

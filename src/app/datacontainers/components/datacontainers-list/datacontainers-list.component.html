@@ -1,0 +1,4 @@
+<div *ngFor="let datacontainer of data">
+  <label>{{datacontainer.name}}:</label>
+  <button type="button" class="datacontainer-item" [routerLink]="['/datacontainers', datacontainer.id]">{{datacontainer.id}}</button>
+</div>

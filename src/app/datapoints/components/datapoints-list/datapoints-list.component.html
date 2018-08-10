@@ -1,0 +1,4 @@
+<div *ngFor="let datapoint of data">
+  <label>{{datapoint.name}}:</label>
+  <button type="button" class="datapoint-item" [routerLink]="['/datapoints', datapoint.id]">{{datapoint.id}}</button>
+</div>
