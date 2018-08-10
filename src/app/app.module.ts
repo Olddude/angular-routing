@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DatapointsModule } from './datapoints/datapoints.module';
-import { DatacontainersModule } from './datacontainers/datacontainers.module';
 
 @NgModule({
   declarations: [
@@ -12,11 +10,8 @@ import { DatacontainersModule } from './datacontainers/datacontainers.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    DatapointsModule,
-    DatacontainersModule,
+    AppRoutingModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
