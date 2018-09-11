@@ -8,7 +8,7 @@ const { baseUrl } = require('../../../../config');
 router.get('', (req, res) => {
   const payload = addLinks({}, {
     self: { href: baseUrl + req.originalUrl },
-    datapoint: { href: baseUrl + req.originalUrl + '/{id}', templated: true }
+    datacontainer: { href: baseUrl + req.originalUrl + '/{id}', templated: true }
   });
   res.json(payload);
 });
