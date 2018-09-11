@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
+
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-datapoints-list',
@@ -6,9 +10,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./datapoints-list.component.scss']
 })
 export class DatapointsListComponent {
-  data = [
-    { id: 1, name: 'dp1' },
-    { id: 2, name: 'dp2' },
-    { id: 3, name: 'dp3' }
-  ];
+  constructor(private http: HttpClient, private route: ActivatedRoute) {
+    console.log(this.route.snapshot);
+  }
 }

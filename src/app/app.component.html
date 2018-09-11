@@ -1,3 +1,6 @@
+<header>
+  {{ appHypermedia$ | async | json }}
+</header>
 <nav>
   <a [routerLink]="['/datapoints']">Datapoints List</a>
   <a [routerLink]="['/datacontainers']">Datacontainers List</a>

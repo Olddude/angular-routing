@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-datapoints-detail',
@@ -10,7 +11,10 @@ export class DatapointsDetailComponent implements OnInit, OnDestroy {
 
   id: number;
 
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor(private router: Router, private route: ActivatedRoute, private httpClient: HttpClient) {
+
+    console.log(this.route.snapshot.url);
+
     this.router.routeReuseStrategy.shouldReuseRoute = function(future, current) {
       const currentId: number = parseInt(current.params['id'], 10);
       const futureId: number = parseInt(future.params['id'], 10);
