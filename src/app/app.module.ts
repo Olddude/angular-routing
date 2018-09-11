@@ -16,6 +16,9 @@ import { StoreModule } from './store/store.module';
     BrowserModule,
     AppRoutingModule
   ],
+  exports: [
+    StoreModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

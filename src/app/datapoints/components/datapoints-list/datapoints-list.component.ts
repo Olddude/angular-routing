@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DatapointsActions } from '../../store/actions';
-import { select } from '@angular-redux/store';
-import { getHypermedia } from '../../store/selectors';
+import { NgRedux, ObservableStore } from '@angular-redux/store';
 import { Observable } from 'rxjs';
+import { DatapointsState, datapointsReducer } from '../../store/reducer';
+import { getHypermedia } from '../../store/selectors';
 
 @Component({
   selector: 'app-datapoints-list',
@@ -10,10 +11,13 @@ import { Observable } from 'rxjs';
   styleUrls: ['./datapoints-list.component.scss']
 })
 export class DatapointsListComponent {
-  @select(getHypermedia)
   datapointsHypermedia$: Observable<any>;
 
-  constructor(private actions: DatapointsActions) {
+  private subStore: ObservableStore<DatapointsState>;
+
+  constructor(private ngRedux: NgRedux<any>, private actions: DatapointsActions) {
+    this.subStore = this.ngRedux.configureSubStore(['datapoints'], datapointsReducer);
+    this.datapointsHypermedia$ = this.subStore.select(getHypermedia);
     this.actions.fetchRootStarted('http://localhost:8080/v1/datapoints');
   }
 }

@@ -9,13 +9,15 @@ import { createEpicMiddleware } from 'redux-observable';
 import { AppEpics } from './epics';
 import { AppActions } from './actions';
 import { DatapointsStoreModule } from '../datapoints/store/datapoints-store.module';
+import { DatacontainersStoreModule } from '../datacontainers/store/datacontainers-store.module';
 
 
 @NgModule({
   imports: [
     NgReduxModule,
     NgReduxRouterModule.forRoot(),
-    DatapointsStoreModule
+    DatapointsStoreModule,
+    DatacontainersStoreModule
   ],
   providers: [
     RootEpics,
