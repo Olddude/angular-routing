@@ -11,7 +11,8 @@ export interface RootState {
 
 export const initialRootState: RootState = {
   app: undefined,
-  datapoints: undefined
+  datapoints: undefined,
+  datacontainers: undefined
 };
 
 export const rootReducer: Reducer<RootState> = combineReducers<RootState>({
