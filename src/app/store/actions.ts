@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { dispatch } from '@angular-redux/store';
-import { Action } from './redux-types';
+import { Action } from 'redux';
 
 @Injectable()
 export class AppActions {
@@ -13,12 +13,12 @@ export class AppActions {
     type: AppActions.FETCH_ROOT_STARTED
   })
 
-  fetchRootSucceeded = (hypermedia: any): Action => ({
+  fetchRootSucceeded = (hypermedia: any): Action => (<Action>{
     type: AppActions.FETCH_ROOT_SUCCEEDED,
     payload: hypermedia
   })
 
-  fetchRootFailed = (): Action => ({
+  fetchRootFailed = (): Action => (<Action>{
     type: AppActions.FETCH_ROOT_FAILED,
     error: true
   })

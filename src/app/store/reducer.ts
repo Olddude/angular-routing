@@ -1,6 +1,5 @@
-import { Reducer } from 'redux';
+import { Reducer, Action } from 'redux';
 import { AppActions } from './actions';
-import { Action } from './redux-types';
 
 export interface AppState {
   readonly hypermedia: any;
@@ -15,7 +14,7 @@ export const appReducer: Reducer<AppState> = (state: AppState = initialAppState,
     case AppActions.FETCH_ROOT_SUCCEEDED: {
       return {
         ...state,
-        hypermedia: { ...action.payload }
+        hypermedia: { ...action['payload'] }
       };
     }
     default: {

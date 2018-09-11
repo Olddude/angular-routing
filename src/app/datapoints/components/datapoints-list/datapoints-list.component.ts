@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
-
-import { map } from 'rxjs/operators';
+import { DatapointsActions } from '../../store/actions';
+import { select } from '@angular-redux/store';
+import { getHypermedia } from '../../store/selectors';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-datapoints-list',
@@ -10,7 +10,10 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./datapoints-list.component.scss']
 })
 export class DatapointsListComponent {
-  constructor(private http: HttpClient, private route: ActivatedRoute) {
-    console.log(this.route.snapshot);
+  @select(getHypermedia)
+  datapointsHypermedia$: Observable<any>;
+
+  constructor(private actions: DatapointsActions) {
+    this.actions.fetchRootStarted('http://localhost:8080/v1/datapoints');
   }
 }
